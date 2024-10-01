@@ -125,7 +125,7 @@ function Main_Map(): JSX.Element {
   };
 
   let query = {
-      key: 'AIzaSyAuPFSJgdTMRDN0BjcAOzk20vIgmiizW1k',
+      key: '',
       language: 'ko',
       component: 'country:kr',
   };
