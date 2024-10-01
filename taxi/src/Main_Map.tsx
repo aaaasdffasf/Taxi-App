@@ -1,18 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/react-in-jsx-scope */
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Modal,
-  Alert,
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Modal, Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
+import { widthPercentageToDP as wp, heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {useState, useRef} from 'react';
 import MapView, {PROVIDER_GOOGLE, Marker, Polyline} from 'react-native-maps';
@@ -70,12 +61,11 @@ function Main_Map(): JSX.Element {
   };
 
   const [loading, setLoading] = useState(false);
-  const [selectedLatLng, setSelectedLatLng] = useState({
-      latitude: 0,
-      longitude: 0,
-  });
   const [selectedAddress, setSelectedAddress] = useState('');
-
+  const [selectedLatLng, setSelectedLatLng] = useState({
+    latitude: 0,
+    longitude: 0,
+});
   const mapRef: any = useRef(null);
 
   const [initialRegion, setInitialRegion] = useState({
@@ -86,26 +76,24 @@ function Main_Map(): JSX.Element {
   });
 
   const [showBtn, setShowBtn] = useState(false);
-
-  const handleLongPress = async (event: any) => {
-      const {coordinate} = event.nativeEvent;
-      setSelectedLatLng(coordinate);
-      setLoading(true);
-      api
-          .geoCoding(coordinate, query.key)
-          .then(response => {
-              setSelectedAddress(response.data.results[0].formatted_address);
-              setShowBtn(true);
-              setLoading(false);
-          })
-          .catch(err => {
-              console.log(JSON.stringify(err));
-              setLoading(false);
-          });
-  };
-
   const autoComplete1: any = useRef(null);
   const autoComplete2: any = useRef(null);
+  const handleLongPress = async (event: any) => {
+    const {coordinate} = event.nativeEvent;
+    setSelectedLatLng(coordinate);
+    setLoading(true);
+    api
+        .geoCoding(coordinate, query.key)
+        .then(response => {
+            setSelectedAddress(response.data.results[0].formatted_address);
+            setShowBtn(true);
+            setLoading(false);
+        })
+        .catch(err => {
+            console.log(JSON.stringify(err));
+            setLoading(false);
+        });
+};
 
   const handleAddMarker = (title: string) => {
       if (selectedAddress) {
@@ -125,7 +113,7 @@ function Main_Map(): JSX.Element {
   };
 
   let query = {
-      key: '',
+      key: 'AIzaSyA2UKx1C_XRHD4_zWYIGIobfYrGBa8B1UI',
       language: 'ko',
       component: 'country:kr',
   };
