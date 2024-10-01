@@ -113,7 +113,7 @@ function Main_Map(): JSX.Element {
   };
 
   let query = {
-      key: 'AIzaSyA2UKx1C_XRHD4_zWYIGIobfYrGBa8B1UI',
+      key: '',
       language: 'ko',
       component: 'country:kr',
   };
